@@ -21,7 +21,7 @@ $amount = ($xpath->query("//div[@class='flipwrapper']")->length);
 include 'addEntry.php';
 setupTable();
 
-for ($i = 0; $i < $amount; $i++) {
+for ($i = 0; $i < 1; $i++) {
     $title = $xpath->query("//div[@class='flipwrapper']")->item($i)->getAttribute('data-sharetitle');
     $link = $xpath->query("//div[@class='flipwrapper']")->item($i)->getAttribute('data-shareurl');
     $description = $xpath->query("//div[@class='flipwrapper']")->item($i)->getAttribute('data-sharecontent');

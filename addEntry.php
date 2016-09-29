@@ -17,7 +17,7 @@ function setupTable() {
         $sql = 'CREATE TABLE FoodGawker(
             id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
             title VARCHAR(20),
-            description VARCHAR(20),
+            description TEXT,
             username VARCHAR(20),
             faved INT, 
             gawked INT)';
@@ -32,16 +32,24 @@ function setupTable() {
     }
 }
 
-function addEntry($title, $description, $username, $faved, $gawked) {
+function addEntry($title1, $description1, $username1, $faved1, $gawked1) {
     try {
         $user = 'CS1133611';
         $password = 'alverion';
         $dataSourceName = 'mysql:host=waldo2.dawsoncollege.qc.ca;dbname=cs1133611';
         $pdo = new PDO($dataSourceName, $user, $password);
-
-
-        $sql = "INSERT INTO FoodGawker (title, description, username, faved, gawked) VALUES($title, $description, $username, $faved, $gawked)";
-
+        
+        $title1 = 'title';
+        $description1 = 'description';
+        $username1 = 'username';
+        $faved1 = 1;
+        $gawked1 = 0;
+        
+        
+        $sql = 'INSERT INTO FoodGawker (title, description, username, faved, gawked) VALUES('."$title1".','."$description1".','."$username1".','."$faved1".','."$gawked1)";
+        
+        
+        
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->exec($sql);
         
