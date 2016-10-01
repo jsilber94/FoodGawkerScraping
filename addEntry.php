@@ -11,7 +11,8 @@ function setupTable() {
 
         $sql = 'DROP TABLE FoodGawker';
         $pdo->exec($sql);
-        echo 'Table Dropped';
+      /*  echo 'Table Dropped';*/
+		
 
 
         $sql = 'CREATE TABLE FoodGawker(
@@ -24,7 +25,8 @@ function setupTable() {
 
         $pdo->exec($sql);
 
-        echo 'Table Created';
+       /* echo 'Table Created';*/
+	
     } catch (PDOException $e) {
         echo $e->getMessage();
     } finally {
@@ -40,20 +42,21 @@ function addEntry($title1, $description1, $username1, $faved1, $gawked1) {
         $pdo = new PDO($dataSourceName, $user, $password);
         
         $title1 = "'"."$title1"."'";
+		$description1 = str_replace("'","’",$description1);
         $description1 = "'"."$description1"."'";
+		
         $username1 = "'"."$username1"."'";
-        $faved1 = 1;
-        $gawked1 = 0;
+        $faved1 = "'"."$faved1"."'";
+        $gawked1 = "'"."$gawked1"."'";
         
         
         $sql = "INSERT INTO FoodGawker (title, description, username, faved, gawked) VALUES($title1, $description1, $username1, $faved1, $gawked1)";
         
-        echo $sql;
         
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->exec($sql);
         
-        
+
         echo "Entry created";
     } catch (PDOException $e) {
         echo $e->getMessage();

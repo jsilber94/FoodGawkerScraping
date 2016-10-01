@@ -9,7 +9,7 @@ $page = curl_exec($ch);
 
 curl_close($ch);
 
-//echo $page;
+/*echo $page;*/
 $domdocument = new DomDocument();
 @$domdocument->loadHTML($page);
 
@@ -21,7 +21,7 @@ $amount = ($xpath->query("//div[@class='flipwrapper']")->length);
 include 'addEntry.php';
 setupTable();
 
-for ($i = 0; $i < 1; $i++) {
+for ($i = 0; $i < $amount; $i++) {
     $title = $xpath->query("//div[@class='flipwrapper']")->item($i)->getAttribute('data-sharetitle');
     $link = $xpath->query("//div[@class='flipwrapper']")->item($i)->getAttribute('data-shareurl');
     $description = $xpath->query("//div[@class='flipwrapper']")->item($i)->getAttribute('data-sharecontent');
