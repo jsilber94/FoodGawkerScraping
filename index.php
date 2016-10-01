@@ -28,7 +28,7 @@ for ($i = 0; $i < $amount; $i++) {
     $username = $xpath->query("//a[@class='submitter']")->item($i)->nodeValue;
     $faved = $xpath->query("//div[@class='faved']")->item($i)->nodeValue;
     $gawked = $xpath->query("//div[@class='gawked']")->item($i)->nodeValue;
-    addEntry($title, $description, $username, $faved, $gawked);
+    addEntry($title,$link, $description, $username, $faved, $gawked);
     sleep(1);
 }
  
