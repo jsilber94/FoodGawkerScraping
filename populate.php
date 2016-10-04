@@ -1,16 +1,19 @@
 <?php
 
+
 include 'utils.php';
+
 setupTable();
-include 'scrape.php';
+
 
 
 $amountOfPages = 101;
 
-for ($j = 1; $j < $amountOfPages; $j++) {
-    
-    $url = 'https://foodgawker.com/page/'.$j;
-    
+//for ($j = 1; $j < $amountOfPages; $j++) {
+
+  //  $url = 'https://foodgawker.com/page/' . $j;
+
+ $url = 'https://foodgawker.com';
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $page = curl_exec($ch);
@@ -34,7 +37,5 @@ for ($j = 1; $j < $amountOfPages; $j++) {
         //addEntry($title,$link, $description, $username, $faved, $gawked);
     }
     sleep(1);
-}
-
-
+//}
 ?>
