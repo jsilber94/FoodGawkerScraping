@@ -1,36 +1,28 @@
 <?php
-
-$url = 'https://foodgawker.com';
-$ch = curl_init($url);
-
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-
-$page = curl_exec($ch);
-
-curl_close($ch);
-
-/*echo $page;*/
-$domdocument = new DomDocument();
-@$domdocument->loadHTML($page);
+echo '  <!DOCTYPE html>
+        <html>
+            <head>
+                <title>Food Scraper</title>
+                <link rel="stylesheet" href="styles.css">
+            </head>
+        <body>';
 
 
-$xpath = new DOMXpath(@$domdocument);
 
-$amount = ($xpath->query("//div[@class='flipwrapper']")->length);
+include 'utils.php';
 
-include 'addEntry.php';
-setupTable();
+$scrapes = getEntries();
 
-for ($i = 0; $i < $amount; $i++) {
-    $title = $xpath->query("//div[@class='flipwrapper']")->item($i)->getAttribute('data-sharetitle');
-    $link = $xpath->query("//div[@class='flipwrapper']")->item($i)->getAttribute('data-shareurl');
-    $description = $xpath->query("//div[@class='flipwrapper']")->item($i)->getAttribute('data-sharecontent');
-    $username = $xpath->query("//a[@class='submitter']")->item($i)->nodeValue;
-    $faved = $xpath->query("//div[@class='faved']")->item($i)->nodeValue;
-    $gawked = $xpath->query("//div[@class='gawked']")->item($i)->nodeValue;
-    addEntry($title,$link, $description, $username, $faved, $gawked);
-    sleep(1);
-}
- 
- 
- 
+echo '<h1>Food Scraper</h1>';
+
+echo '<div id="scrapes">';
+    foreach ($scrapes as $scrape) {
+        $scrape->toHTML();
+    }
+echo '</div>';
+
+
+
+echo '  </body>
+        </html>';
+?>

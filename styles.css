@@ -1,0 +1,87 @@
+/*
+COLOR1: #332532
+COLOR2: #644D52
+COLOR3: #F77A52
+COLOR4: #FF974F
+COLOR5: #A49A87
+*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+
+    background-color: #332532;
+}
+
+#scrapes {
+    width: 100%;
+    height: 100%;
+}
+
+.scrape {
+    width: 20%;
+    height: 200px;
+
+    padding: 6px;
+    margin: 12px;
+
+    display: inline-block;
+
+    background-color: #644D52;
+
+    border-radius: 24px 24px 8px 8px;
+}
+
+.scrape_header {
+    width: 100%;
+    height: 20%;
+
+    background-color: #F77A52;
+
+    border-radius: 24px 24px 0px 0px;
+}
+
+.scrape_body {
+    width: 100%;
+    height: 60%;
+
+    background-color: #FF974F;
+}
+
+.scrape_footer {
+    width: 100%;
+    height: 20%;
+
+    background-color: #A49A87;
+
+    border-radius: 0px 0px 8px 8px;
+}
+
+.left {
+    width: 50%;
+    height: 100%;
+
+    display: inline-block;
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.right {
+    width: 50%;
+    height: 100%;
+
+    display: inline-block;
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: right;
+}
