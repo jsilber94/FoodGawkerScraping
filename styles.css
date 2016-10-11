@@ -1,10 +1,14 @@
 /*
-COLOR1: #332532
-COLOR2: #644D52
-COLOR3: #F77A52
-COLOR4: #FF974F
-COLOR5: #A49A87
+COLOR1: #314E59
+COLOR2: #6A7348
+COLOR3: #D9C2A7
+COLOR4: #A67356
+COLOR5: #A63838
+COLOR6: #913131
 */
+::-webkit-scrollbar { 
+    display: none; 
+}
 
 * {
     margin: 0px;
@@ -12,54 +16,70 @@ COLOR5: #A49A87
 }
 
 body {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 
-    background-color: #332532;
+    background-color: #343131;
 }
 
 #scrapes {
     width: 100%;
     height: 100%;
+
+    text-align: center;
 }
 
 .scrape {
     width: 20%;
-    height: 200px;
+    height: 20%;
 
-    padding: 6px;
     margin: 12px;
 
     display: inline-block;
 
-    background-color: #644D52;
+    background-color: #2980B9;
 
-    border-radius: 24px 24px 8px 8px;
+    border-radius: 8px 8px 4px 4px;
+    border-color: #2980B9;
+    border-style: solid;
+    border-width: 4px;
+}
+
+.scrape:not(:hover) {
+        opacity: 0.75;
 }
 
 .scrape_header {
     width: 100%;
     height: 20%;
 
-    background-color: #F77A52;
+    background-color: #2980B9;
+    border-radius: 8px 8px 0px 0px;
 
-    border-radius: 24px 24px 0px 0px;
+    vertical-align: middle;
+    line-height: 200%;
 }
 
 .scrape_body {
     width: 100%;
     height: 60%;
 
-    background-color: #FF974F;
+    background-color: #E3E3E3;
+
+    vertical-align: middle;
+    text-align: left;
+
 }
 
 .scrape_footer {
     width: 100%;
     height: 20%;
 
-    background-color: #A49A87;
+    background-color: #FCFCFC;
+    border-radius: 0px 0px 4px 4px;
 
-    border-radius: 0px 0px 8px 8px;
+    vertical-align: middle;
+    line-height: 200%;
 }
 
 .left {
@@ -72,6 +92,7 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: left;
+
 }
 
 .right {
@@ -83,5 +104,49 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    text-align: right;
+    text-align: right;  
+}
+
+#header {
+    width: 100%;
+    height: 10%;
+
+    margin-top: 2.5%;
+
+    text-align: center;
+    vertical-align: middle;
+    line-height: 10vh; 
+
+    background-color: #2980B9;
+
+    font-size: 48px;
+}
+
+#nav {
+    width: 100%;
+    height: 5%;
+
+    text-align: center;
+    vertical-align: middle;
+    line-height: 5%;
+
+    margin-bottom: 2.5%;
+
+    background-color: #404040;
+}
+
+button {
+    height: 100%;
+    width: 20%;
+
+    font-size: 24px;
+
+    background-color: #404040;
+    border: none;
+    color: white;
+
+}
+
+button:hover { 
+    background-color: #343131;
 }

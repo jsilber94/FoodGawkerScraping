@@ -13,7 +13,15 @@ include 'utils.php';
 
 $scrapes = getEntries();
 
-echo '<h1>Food Scraper</h1>';
+
+echo '<div id="header">';
+echo 'Gawks N\' Scrapes';
+echo '</div>';
+
+echo '<div id="nav">';
+echo '<button type="button">Top Gawks</button>';
+echo '<button type="button">Search</button>';
+echo '</div>';
 
 echo '<div id="scrapes">';
     foreach ($scrapes as $scrape) {

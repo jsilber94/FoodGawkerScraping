@@ -67,7 +67,7 @@ function getEntries(){
         $src = 'mysql:host=waldo2.dawsoncollege.qc.ca;dbname=cs1133611';
         $pdo = new PDO($src, $db_name, $db_pword);
 
-        $stmt = $pdo->prepare('SELECT * FROM FoodGawker;');
+        $stmt = $pdo->prepare('SELECT * FROM FoodGawker ORDER BY gawked DESC;');
         $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Scrape');
 
         if($stmt->execute()){

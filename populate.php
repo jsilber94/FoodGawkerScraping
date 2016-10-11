@@ -9,11 +9,10 @@ setupTable();
 
 $amountOfPages = 101;
 
-//for ($j = 1; $j < $amountOfPages; $j++) {
+for ($j = 1; $j < $amountOfPages; $j++) {
+    $url = 'https://foodgawker.com/page/'.$j;
 
-  //  $url = 'https://foodgawker.com/page/' . $j;
-
- $url = 'https://foodgawker.com';
+    //$url = 'https://foodgawker.com';
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $page = curl_exec($ch);
@@ -33,9 +32,7 @@ $amountOfPages = 101;
 
         $entry = new Scrape($title, $link, $description, $username, $faved, $gawked);
         $entry->addDBEntry();
-
-        //addEntry($title,$link, $description, $username, $faved, $gawked);
     }
     sleep(1);
-//}
+}
 ?>

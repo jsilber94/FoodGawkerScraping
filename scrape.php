@@ -74,7 +74,7 @@ class Scrape{
         echo '<div class="scrape">';
         
             echo '<div class="scrape_header">';
-                echo "<div class='left'>$this->title</div>";
+                echo "<div class='left'><a href=$this->link>$this->title</a></div>";
                 echo "<div class='right'>$this->username</div>";
             echo '</div>';
 
