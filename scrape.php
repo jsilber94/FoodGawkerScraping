@@ -34,11 +34,11 @@ class Scrape{
             $gawked = "'"."$this->gawked"."'";
 
             $sql = "INSERT INTO FoodGawker (title,link, description, username, faved, gawked) VALUES(
-                $title, 
-                $link, 
-                $description, 
-                $username, 
-                $faved, 
+                $title,
+                $link,
+                $description,
+                $username,
+                $faved,
                 $gawked)";
 
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -72,17 +72,17 @@ class Scrape{
 
     function toHTML(){
         echo '<div class="scrape">';
-        
+
             echo '<div class="scrape_header">';
-                echo "<div class='left'><a href=$this->link>$this->title</a></div>";
-                echo "<div class='right'>$this->username</div>";
+                echo "<div id='boldtitle' class='left'><a href=$this->link>$this->title</a></div>";
+                echo "<div id='boldstealth' class='right'>$this->username</div>";
             echo '</div>';
 
             echo "<div class='scrape_body'>$this->description</div>";
-            
+
             echo '<div class="scrape_footer">';
-                echo "<div class='left'>$this->faved</div>";
-                echo "<div class='right'>$this->gawked</div>";
+                echo "<div id='boldstealth' class='left'>$this->faved   &#9829;</div>";
+                echo "<div id='boldstealth' class='right'>&#128065; $this->gawked</div>";
             echo '</div>';
 
         echo '</div>';

@@ -1,36 +1,28 @@
 <?php
-echo '  <!DOCTYPE html>
-        <html>
-            <head>
-                <title>Food Scraper</title>
-                <link rel="stylesheet" href="styles.css">
-            </head>
-        <body>';
-
-
-
-include 'utils.php';
-
-$scrapes = getEntries();
-
-
-echo '<div id="header">';
-echo 'Gawks N\' Scrapes';
-echo '</div>';
-
-echo '<div id="nav">';
-echo '<button type="button">Top Gawks</button>';
-echo '<button type="button">Search</button>';
-echo '</div>';
-
-echo '<div id="scrapes">';
-    foreach ($scrapes as $scrape) {
-        $scrape->toHTML();
+// Button Logic
+if($_GET){
+    if(isset($_GET['index'])){
+        header('Location: index.php');
+        exit;
+    }elseif(isset($_GET['top'])){
+        header('Location: index.php');
+        exit;
     }
-echo '</div>';
+    elseif(isset($_GET['gawker'])){
+        header('Location: http://foodgawker.com/');
+        exit;
+    }
+}
 
+// Display main header
+include_once 'main_header.php';
 
+// Display top gawkers as default
+if(isset($_GET['search']) || isset($_GET['lookup'])){
+  include_once 'search_entries.php';
+}else{
+  include_once 'top_entries.php';
+}
 
-echo '  </body>
-        </html>';
-?>
+// Close html with footer
+include_once 'main_footer.php';

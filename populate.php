@@ -1,11 +1,8 @@
 <?php
 
-
 include 'utils.php';
 
 setupTable();
-
-
 
 $amountOfPages = 101;
 
